@@ -1,11 +1,30 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { startListening, stopListening } from '../listen.js'
-import { getCurrentNote } from '../store'
+import { setNextNote } from '../store'
 
-export default class Control extends Component {
+class Control extends Component {
   constructor(props) {
     super(props);
+    this.handleStart = this.handleStart.bind(this);
+  }
 
+  handleStart(evt) {
+    evt.preventDefault();
+    console.log('Started')
+    startListening();
+    this.props.setNextNote({
+      pitch: 'E',
+      strN: 6,
+      fret: 0,
+      status: 'next'
+    },)
+  }
+
+  handleStop(evt) {
+    evt.preventDefault();
+    console.log('Stopped')
+    stopListening();
   }
 
   startListening(evt) {
@@ -18,16 +37,24 @@ export default class Control extends Component {
     console.log('Stop')
   }
 
-
-
   render() {
     return (
       <div>
-        <button onClick={startListening}>Play</button>
-        <button onClick={stopListening}>Stop</button>
+        <button onClick={this.handleStart}>Play</button>
+        <button onClick={this.handleStop}>Stop</button>
       </div>
     )
   }
 }
 
-const mapDispatch = { getCurrentNote };
+// const mapDispatch = dispatch => { setNextNote };
+
+const mapDispatch = function (dispatch) {
+  return {
+    setNextNote: note => {
+      dispatch(setNextNote(note));
+    }
+  };
+};
+
+export default connect(null, mapDispatch)(Control)

@@ -1,3 +1,0 @@
-const singleNotes = {
-  Es: []
-}
