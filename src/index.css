@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.note-hidden {
+  display: none;
+}
+
+.note-neutral {
+  color: blue;
+}
+
+.note-correct {
+  color: green;
+}
+
+.note-wrong {
+  color: red;
+}
