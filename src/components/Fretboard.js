@@ -10,16 +10,26 @@ class Fretboard extends Component {
   }
 
   getClassName(note) {
-    const next = this.props.next;
-    console.log('nexst in classname', next);
-    console.log('from note in classname', note);
+    const sequence = this.props.sequence;
+    const index = this.props.index;
+    console.log('sequence in getClassName', sequence);
+    console.log('index in geClassName', index);
     // if (next.pitch && note.pitch === next.pitch && note.stringNumber) {
     //   return 'note-next';
     // }
-    if (note.pitch === next.pitch && note.strN === next.strN) {
-      return 'note note-next';
-    }
-    return 'note'
+    // if (note.pitch === next.pitch && note.strN === next.strN) {
+    //   return 'note note-next';
+    // }
+    // if (note === 'now' && next.pitch === 'E') {
+    //   return 'svg-success';
+    // }
+    if(index === 0) {return "hidden"};
+    if(index === 3) {return "svg"};
+  }
+
+  handleSuccess(evt) {
+    evt.preventDefault();
+    return 'svg-success'
   }
 
 
@@ -108,12 +118,25 @@ class Fretboard extends Component {
             <div className="fret"></div>
             <div className="fret"></div>
             <div className="fret fret-bottom">
-              <div className={`${this.getClassName({ pitch: 'E', strN: 6 })} note-open`}>
-              </div>
+              <div className={`${this.getClassName({ pitch: 'E', strN: 6 })} note-open`}></div>
+            </div>
+            <div className="fret fret-bottom">
+              <div className={`${this.getClassName({ pitch: 'E', strN: 6 })} note-open`}></div>
+              {this.getClassName({pitch: 'E', strN: 6})}
+            </div>
+            <div className="fret fret-bottom">
+
             </div>
             <div className="fret fret-bottom"></div>
-            <div className="fret fret-bottom"></div>
-            <div className="fret fret-bottom"></div>
+            <div className={this.getClassName()}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50 " viewBox="-263.5 236.5 26 26">
+                <g className="svg-success">
+                  <circle cx="-250.5" cy="249.5" r="12" />
+                  <path d="M-256.46 249.65l3.9 3.74 8.02-7.8" />
+                </g>
+              </svg>
+            </div>
+
             <div className="fret fret-bottom"></div>
             <div className="fret fret-bottom"></div>
             <div className="fret fret-bottom"></div>
@@ -133,7 +156,8 @@ class Fretboard extends Component {
 
 const mapState = state => {
   return {
-    next: state.notes.next
+    sequence: state.notes.sequence,
+    index: state.notes.index
   }
 }
 

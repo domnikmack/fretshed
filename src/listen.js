@@ -1,46 +1,12 @@
 'use strict';
-import store, { setNextNote } from './store';
+import store, { updateStatus, setIndex } from './store';
 
 const PitchDetect = require('pitch-detect');
 let intervalID;
 
-const eNaturals = [
-  {
-    pitch: 'E',
-    strN: 5,
-    fret: 7,
-    status: 'next'
-  },
-  {
-    pitch: 'E',
-    strN: 4,
-    fret: 2,
-    status: 'next'
-  },
-  {
-    pitch: 'E',
-    strN: 3,
-    fret: 9,
-    status: 'next'
-  },
-  {
-    pitch: 'E',
-    strN: 2,
-    fret: 5,
-    status: 'next'
-  },
-  {
-    pitch: 'E',
-    strN: 1,
-    fret: 0,
-    status: 'next'
-  },
-]
 
-export function startListening() {
-
-  console.log('This is the listen funtion.')
-
+export function startListening(sequence) {
+  console.log('SEQUENCE', sequence)
   navigator.mediaDevices.getUserMedia(
     {
       audio: true
@@ -48,19 +14,25 @@ export function startListening() {
     .then(function (stream) {
       const pitchDetect = new PitchDetect(stream);
       let count = 0;
-      let sequenceCounter = 0;
-
+      let sequenceIndex = 0;
+      let ready = true;
       intervalID = setInterval(() => {
         let note = pitchDetect.getPitch().note;
         console.log(note);
-        if (note === 'A') {
+        if (ready && note === sequence[sequenceIndex].name) {
           count++;
-          console.log('counter', count);
-          if (count === 5) {
+          console.log('count', count);
+          if (count >= 5) {
             console.log('YES!!!!!!!!!!!!!!')
-            sequenceCounter++;
-            store.dispatch(setNextNote(eNaturals[sequenceCounter]))
-            count = 0;
+            store.dispatch(updateStatus('success'))
+            store.dispatch(setIndex(sequenceIndex))
+            sequenceIndex++;
+            ready = false;
+            setTimeout(() => {
+              ready = true;
+              count = 0;
+
+            }, 1000);
           }
         } else {
           count = 0;

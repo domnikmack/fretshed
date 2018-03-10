@@ -11,14 +11,10 @@ class Control extends Component {
 
   handleStart(evt) {
     evt.preventDefault();
-    console.log('Started')
-    startListening();
-    this.props.setNextNote({
-      pitch: 'E',
-      strN: 6,
-      fret: 0,
-      status: 'next'
-    },)
+    const sequence = this.props.sequence;
+    const index = this.props.index;
+    console.log('SEQUENCE IN CONTROL', sequence)
+    startListening(sequence);
   }
 
   handleStop(evt) {
@@ -27,15 +23,15 @@ class Control extends Component {
     stopListening();
   }
 
-  startListening(evt) {
-    evt.preventDefault();
-    console.log('Play')
-  }
+  // startListening(evt) {
+  //   evt.preventDefault();
+  //   console.log('Play')
+  // }
 
-  stopListening(evt) {
-    evt.preventDefault();
-    console.log('Stop')
-  }
+  // stopListening(evt) {
+  //   evt.preventDefault();
+  //   console.log('Stop')
+  // }
 
   render() {
     return (
@@ -49,12 +45,16 @@ class Control extends Component {
 
 // const mapDispatch = dispatch => { setNextNote };
 
+const mapState = function (state) {
+  return {
+    sequence: state.notes.sequence,
+    index: state.notes.index
+  }
+}
+
 const mapDispatch = function (dispatch) {
   return {
-    setNextNote: note => {
-      dispatch(setNextNote(note));
-    }
   };
 };
 
-export default connect(null, mapDispatch)(Control)
+export default connect(mapState, mapDispatch)(Control)
