@@ -23,21 +23,15 @@ class Control extends Component {
     stopListening();
   }
 
-  // startListening(evt) {
-  //   evt.preventDefault();
-  //   console.log('Play')
-  // }
-
-  // stopListening(evt) {
-  //   evt.preventDefault();
-  //   console.log('Stop')
-  // }
 
   render() {
+    const {handleSuccess, nextNote} = this.props;
     return (
       <div>
         <button onClick={this.handleStart}>Play</button>
         <button onClick={this.handleStop}>Stop</button>
+        <button onClick={handleSuccess}>Success</button>
+        <button onClick={nextNote}>Next</button>
       </div>
     )
   }
@@ -45,16 +39,17 @@ class Control extends Component {
 
 // const mapDispatch = dispatch => { setNextNote };
 
-const mapState = function (state) {
-  return {
-    sequence: state.notes.sequence,
-    index: state.notes.index
-  }
-}
+// const mapState = function (state) {
+//   return {
+//     sequence: state.notes.sequence,
+//     index: state.notes.index
+//   }
+// }
 
-const mapDispatch = function (dispatch) {
-  return {
-  };
-};
+// const mapDispatch = function (dispatch) {
+//   return {
+//   };
+// };
 
-export default connect(mapState, mapDispatch)(Control)
+// export default connect(mapState, mapDispatch)(Control)
+export default Control;
