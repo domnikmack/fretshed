@@ -14,7 +14,7 @@ class App extends Component {
     super(props);
     this.state = {
       sequences: naturals,
-      note: 'E',
+      note: '',
       index: 0
     }
     this.handleSuccess = this.handleSuccess.bind(this);
@@ -23,14 +23,22 @@ class App extends Component {
     this.clearNotes = this.clearNotes.bind(this);
   }
 
+  setNewNote(newNote) {
+    console.log('current note', this.state.note)
+    console.log('new note passed in', newNote)
+    console.log('this ', this)
+    this.setState({note: newNote}, () => this.setupNotes());
+  }
   setupNotes(noteName) {
-    this.setState({note: noteName})
+    // console.log('NOTE NAME in SETUP NOTES', noteName)
+    // console.log('STATE IN SETUP NOTES', this.state);
+
+    console.log('STATE AFTER SETTING NOTE NAME', this.state)
     const sequences = this.state.sequences;
     const note = this.state.note;
     const updatedNotes = sequences[note].map(el => 'pop');
     sequences[note] = updatedNotes;
     this.setState({sequences})
-    console.log('sequences in APP after', this.state.sequences)
   }
 
   clearNotes() {
@@ -39,7 +47,6 @@ class App extends Component {
       let clearedNotes = sequences[key].map(el => 'hide');
       sequences[key] = clearedNotes;
     }
-    console.log('NATURALS IN CLEAR', naturals)
     this.setState({sequences: naturals})
   }
 
@@ -54,7 +61,7 @@ class App extends Component {
 
 
   render() {
-    console.log('SEQUENCES IN APP', this.state.sequences)
+    // console.log('SEQUENCES IN APP', this.state.sequences)
     return (
       <div className="App">
         <header className="App-header">
@@ -62,9 +69,9 @@ class App extends Component {
           <h1 className="App-title">FretShed</h1>
         </header>
         <InfoHeader className="info-header" sequence={this.state.sequence} />
-        <Fretboard sequences={this.state.sequences} index={this.state.index}/>
-        <SelectNote setupNotes={this.setupNotes} clearNotes={this.clearNotes}/>
-        <Control handleSuccess={this.handleSuccess} nextNote={this.nextNote}/>
+        <Fretboard />
+        <SelectNote />
+        <Control sequence={this.state.sequences}  handleSuccess={this.handleSuccess} nextNote={this.nextNote}/>
       </div>
     );
   }
