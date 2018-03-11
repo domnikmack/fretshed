@@ -37,11 +37,14 @@ class Control extends Component {
       .then(function (stream) {
         const pitchDetect = new PitchDetect(stream);
         let count = 0;
+        let wrongCount = 0;
         let progressIndex = 0;
+        let previousNote = '';
         let ready = true;
         intervalID = setInterval(() => {
           let detectedNote = pitchDetect.getPitch().note;
           console.log(detectedNote);
+          previousNote = detectedNote;
           if (ready && detectedNote === selectedNote) {
             count++;
             console.log('count', count);
@@ -57,39 +60,57 @@ class Control extends Component {
                 progressIndex++
               }, 1000);
 
-        setTimeout(() => {
-          ready = true;
-          count = 0;
-        }, 1000);
-      }
+              setTimeout(() => {
+                count = 0;
+                ready = true;
+              }, 1000);
+            }
           } else {
-  count = 0;
-}
+            count = 0;
+            if (wrongCount >= 5) {
+              wrongCount = 0;
+              let statusArr = ['hide', 'hide', 'hide', 'hide', 'hide', 'hide'].map((el, i) => i === progressIndex ? 'fail' : 'hide');
+              updateStatus(statusArr);
+              setTimeout(() => {
+                let statusArr = ['hide', 'hide', 'hide', 'hide', 'hide', 'hide'].map((el, i) => i === progressIndex ? 'next' : 'hide');
+                updateStatus(statusArr);
+                setTimeout(() => {
+                  count = 0;
+                  ready = true;
+                }, 1000);
+
+              }, 1000);
+            }
+            if (ready & detectedNote !== undefined && previousNote === detectedNote) {
+              wrongCount++;
+              console.log('+++++++++ WRONG COUNT ', wrongCount)
+            }
+          }
         }, 100)
       })
-      .catch (err => {
-  console.error(err);
-});
+      .catch(err => {
+        console.error(err);
+      });
   }
 
-handleStop(evt) {
-  evt.preventDefault();
-  console.log('interval ID', intervalID)
-  clearInterval(intervalID);
-}
+  handleStop(evt) {
+    evt.preventDefault();
+    console.log('interval ID', intervalID)
+    clearInterval(intervalID);
+  }
 
 
-render() {
-  const { handleSuccess, nextNote } = this.props;
-  return (
-    <div>
-      <button onClick={this.startListening}>Start</button>
-      <button onClick={this.handleStop}>Stop</button>
-      <button onClick={handleSuccess}>Success</button>
-      <button onClick={nextNote}>Next</button>
-    </div>
-  )
-}
+  render() {
+    const { handleSuccess, nextNote } = this.props;
+    return (
+      <div>
+        <button onClick={this.startListening}>Start</button>
+        <button onClick={this.handleStop}>Stop</button>
+        <button onClick={handleSuccess}>Success</button>
+        <button onClick={nextNote}>Next</button>
+      </div>
+    )
+  }
 }
 
 
