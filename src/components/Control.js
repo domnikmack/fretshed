@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { startListening, stopListening } from '../listen.js'
-import { updateStatus } from '../store'
+import { updateStatus,clearNote } from '../store'
 const PitchDetect = require('pitch-detect');
 
 let intervalID;
@@ -131,10 +131,8 @@ class Control extends Component {
     const { handleSuccess, nextNote } = this.props;
     return (
       <div>
-        <button onClick={this.startListening}>Start</button>
-        <button onClick={this.handleStop}>Stop</button>
-        <button onClick={handleSuccess}>Success</button>
-        <button onClick={nextNote}>Next</button>
+        <button onClick={this.startListening} className="ctr-btn start-btn">start</button>
+        <button onClick={this.handleStop} className="ctr-btn stop-btn">stop</button>
       </div>
     )
   }
@@ -151,6 +149,9 @@ const mapDispatch = function (dispatch) {
   return {
     updateStatus: function (status) {
       dispatch(updateStatus(status))
+    },
+    clearNote: function (status) {
+      dispatch(clearNote())
     }
   }
 };

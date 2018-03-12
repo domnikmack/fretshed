@@ -69,8 +69,8 @@ class Fretboard extends Component {
     if (selectedNote === pos.note && notesStatus[pos.noteIndex] === 'next') {
       return (
         <div>
-        <NoteNext addToClass={addToClass} />
-        <ReactAudioPlayer src={setupAudio} autoPlay />
+          <NoteNext addToClass={addToClass} />
+          <ReactAudioPlayer src={setupAudio} autoPlay />
         </div>
       )
     }
@@ -115,97 +115,101 @@ class Fretboard extends Component {
         <div className="fretboard">
           <div className="fret fret-top fret-left">
             {this.getComponent({ note: 'E', noteIndex: 5 }, 'note-open')}
+            {this.getComponent({ note: 'F', noteIndex: 5 })}
           </div>
           <div className="fret fret-top"></div>
+          <div className="fret fret-top">{this.getComponent({ note: 'G', noteIndex: 5 })}</div>
+          <div className="fret fret-top"></div>
+          <div className="fret fret-top">{this.getComponent({ note: 'A', noteIndex: 5 })}</div>
+          <div className="fret fret-top"></div>
+          <div className="fret fret-top">{this.getComponent({ note: 'B', noteIndex: 5 })}</div>
+          <div className="fret fret-top">{this.getComponent({ note: 'C', noteIndex: 5 })}</div>
+          <div className="fret fret-top"></div>
+          <div className="fret fret-top">{this.getComponent({ note: 'D', noteIndex: 5 })}</div>
           <div className="fret fret-top"></div>
           <div className="fret fret-top"></div>
-          <div className="fret fret-top"></div>
-          <div className="fret fret-top"></div>
-          <div className="fret fret-top"></div>
-          <div className="fret fret-top"></div>
-          <div className="fret fret-top "></div>
-          <div className="fret fret-top"></div>
-          <div className="fret fret-top"></div>
-          <div className="fret fret-top"></div>
-          <div className="fret fret-left"></div>
-          <div className="fret "></div>
+          <div className="fret fret-left">
+            {this.getComponent({ note: 'B', noteIndex: 4 }, 'note-open')}
+            {this.getComponent({ note: 'C', noteIndex: 4 })}
+          </div>
           <div className="fret"></div>
+          <div className="fret">{this.getComponent({ note: 'D', noteIndex: 4 })}</div>
           <div className="fret"></div>
           <div className="fret">{this.getComponent({ note: 'E', noteIndex: 4 })}</div>
-          <div className="fret"></div>
+          <div className="fret">{this.getComponent({ note: 'F', noteIndex: 4 })}</div>
 
           <div className="fret"></div>
+          <div className="fret">{this.getComponent({ note: 'G', noteIndex: 4 })}</div>
           <div className="fret"></div>
-          <div className="fret"></div>
-          <div className="fret"></div>
-          <div className="fret"></div>
-          <div className="fret">
-            <div className="marker"></div>
-          </div>
-          <div className="fret fret-left"></div>
+          <div className="fret">{this.getComponent({ note: 'A', noteIndex: 4 })}</div>
           <div className="fret"></div>
           <div className="fret">
             <div className="marker"></div>
           </div>
-          <div className="fret"></div>
+          <div className="fret fret-left">
+          {this.getComponent({ note: 'G', noteIndex: 3 }, 'note-open')}
+          </div>
+          <div className="fret">{this.getComponent({ note: 'A', noteIndex: 3 })}</div>
           <div className="fret">
             <div className="marker"></div>
           </div>
+          <div className="fret">{this.getComponent({ note: 'B', noteIndex: 3 })}</div>
+          <div className="fret">{this.getComponent({ note: 'C', noteIndex: 3 })}
+            <div className="marker"></div>
+
+          </div>
           <div className="fret"></div>
-          <div className="fret">
+          <div className="fret">{this.getComponent({ note: 'D', noteIndex: 3 })}
             <div className="marker"></div>
           </div>
           <div className="fret"></div>
           <div className="fret">{this.getComponent({ note: 'E', noteIndex: 3 }, '')}
             <div className="marker"></div><div></div>
           </div>
+          <div className="fret">{this.getComponent({ note: 'F', noteIndex: 3 })}</div>
           <div className="fret"></div>
-          <div className="fret "></div>
           <div className="fret"></div>
-          <div className="fret fret-left"></div>
+          <div className="fret fret-left">{this.getComponent({ note: 'D', noteIndex: 2 }, 'note-open')}</div>
           <div className="fret">{this.getComponent({ note: 'E', noteIndex: 2 }, '')}<div></div></div>
+          <div className="fret">{this.getComponent({ note: 'F', noteIndex: 2 }, '')}</div>
           <div className="fret"></div>
+          <div className="fret">{this.getComponent({ note: 'G', noteIndex: 2 }, '')}</div>
           <div className="fret"></div>
+          <div className="fret">{this.getComponent({ note: 'A', noteIndex: 2 }, '')}</div>
           <div className="fret"></div>
-          <div className="fret"></div>
-          <div className="fret"></div>
-          <div className="fret"></div>
-          <div className="fret"></div>
-          <div className="fret"></div>
+          <div className="fret">{this.getComponent({ note: 'B', noteIndex: 2 }, '')}</div>
+          <div className="fret">{this.getComponent({ note: 'C', noteIndex: 2 }, '')}</div>
           <div className="fret"></div>
           <div className="fret">
             <div className="marker"></div>
           </div>
-          <div className="fret fret-left"></div>
+          <div className="fret fret-left">
+          {this.getComponent({ note: 'A', noteIndex: 1 }, 'note-open')}
+          </div>
+          <div className="fret">{this.getComponent({ note: 'B', noteIndex: 1 }, '')}</div>
+          <div className="fret">{this.getComponent({ note: 'C', noteIndex: 1 }, '')}</div>
           <div className="fret"></div>
-          <div className="fret"></div>
-          <div className="fret"></div>
-          <div className="fret"></div>
+          <div className="fret">{this.getComponent({ note: 'D', noteIndex: 1 }, '')}</div>
           <div className="fret"></div>
           <div className="fret">{this.getComponent({ note: 'E', noteIndex: 1 }, '')}</div>
+          <div className="fret">{this.getComponent({ note: 'F', noteIndex: 1 }, '')}</div>
+          <div className="fret"></div>
+          <div className="fret">{this.getComponent({ note: 'G', noteIndex: 1 }, '')}</div>
           <div className="fret"></div>
           <div className="fret"></div>
-          <div className="fret"></div>
-          <div className="fret"></div>
-          <div className="fret"></div>
-          <div className="fret fret-bottom">{this.getComponent({ note: 'E', noteIndex: 0 }, 'note-open')}</div>
           <div className="fret fret-bottom">
-            <div className="note"></div>
-          </div>
-          <div className="fret fret-bottom">
-
+          {this.getComponent({ note: 'E', noteIndex: 0 }, 'note-open')}
+          {this.getComponent({ note: 'F', noteIndex: 0 }, '')}
           </div>
           <div className="fret fret-bottom"></div>
-          <div className="svg">
-
-          </div>
-
+          <div className="fret fret-bottom">{this.getComponent({ note: 'G', noteIndex: 0 }, '')}</div>
           <div className="fret fret-bottom"></div>
+          <div className="fret fret-bottom">{this.getComponent({ note: 'A', noteIndex: 0 }, '')}</div>
           <div className="fret fret-bottom"></div>
+          <div className="fret fret-bottom">{this.getComponent({ note: 'B', noteIndex: 0 }, '')}</div>
+          <div className="fret fret-bottom">{this.getComponent({ note: 'C', noteIndex: 0 }, '')}</div>
           <div className="fret fret-bottom"></div>
-          <div className="fret fret-bottom"></div>
-          <div className="fret fret-bottom"></div>
-          <div className="fret fret-bottom"></div>
+          <div className="fret fret-bottom">{this.getComponent({ note: 'D', noteIndex: 0 }, '')}</div>
           <div className="fret fret-bottom"></div>
           <div className="fret fret-bottom"></div>
 

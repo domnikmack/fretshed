@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import InfoHeader from './components/InfoHeader.js';
+import Footer from './components/Footer.js';
 import Control from './components/Control.js';
 import Fretboard from './components/Fretboard.js';
 import SelectNote from './components/SelectNote.js';
@@ -66,12 +67,13 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">FretShed</h1>
+          <h1 className="App-title">fretShed</h1>
         </header>
         <InfoHeader className="info-header" sequence={this.state.sequence} />
         <Fretboard />
         <SelectNote />
-        <Control sequence={this.state.sequences}  handleSuccess={this.handleSuccess} nextNote={this.nextNote}/>
+        <Control sequence={this.state.sequences}  handleSuccess={this.handleSuccess} nextNote={this.nextNote} />
+        <Footer className="footer"/>
       </div>
     );
   }

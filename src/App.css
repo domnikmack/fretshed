@@ -3,8 +3,10 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  /* animation: App-logo-spin infinite 20s linear; */
+  height: 66px;
+  margin-left: 14px;
+  margin-top: 6px;
 }
 
 .App-header {
@@ -13,30 +15,28 @@
   height: 80px;
   padding: 10px;
   color: white;
+  margin-bottom: 70px;
 }
 
 .App-title {
-  font-size: 2em;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 3em;
   display: inline;
-  margin: auto 0 auto 10px;
+  margin: 19px 10px 0 12px;
 }
 
-.App-intro {
-  font-size: large;
+.App-footer {
+  display: flex;
+  background-color: #5689D6;
+  height: 80px;
+  padding: 10px;
+  color: white;
+  margin-bottom: 70px;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
 
-.info-header {
-  margin-top: 20px;
-}
 
-.container {
-
-}
 
 /* #fretboard-container {
   display:flex;

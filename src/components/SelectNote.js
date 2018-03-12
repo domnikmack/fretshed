@@ -43,14 +43,14 @@ class SelectNote extends Component {
 
     return (
       <div>
-        <button onClick={this.handleSelect} value="C">C</button>
-        <button onClick={this.handleSelect} value="D">D</button>
-        <button onClick={this.handleSelect} value="E">E</button>
-        <button onClick={this.handleSelect} value="F">F</button>
-        <button onClick={this.handleSelect} value="G">G</button>
-        <button onClick={this.handleSelect} value="A">A</button>
-        <button onClick={this.handleSelect} value="B">B</button>
-        <button onClick={this.handleClear} >Clear</button>
+        <button className='btn left-key' onClick={this.handleSelect} value="C">C</button>
+        <button className='btn center-key' onClick={this.handleSelect} value="D">D</button>
+        <button className='btn center-key' onClick={this.handleSelect} value="E">E</button>
+        <button className='btn center-key' onClick={this.handleSelect} value="F">F</button>
+        <button className='btn center-key' onClick={this.handleSelect} value="G">G</button>
+        <button className='btn center-key' onClick={this.handleSelect} value="A">A</button>
+        <button className='btn center-key' onClick={this.handleSelect} value="B">B</button>
+        <button className='btn right-key' onClick={this.handleClear} >Clear</button>
         {this.getAudio()}
       </div>
     )

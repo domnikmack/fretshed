@@ -1,14 +1,102 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet');
+
+
 :root {
   --main-orange: #fa933a;
+  --main-blue: #5689D6;
+}
+
+h1 {
+ font-size: 2.5rem;
+ color: var(--main-blue);
+
 }
 
 body {
+  color: rgb(72, 72, 72);
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Open Sans', sans-serif;
   background-color: rgb(243, 243, 243);
 }
 
+.info-header {
+  margin-top: 50px;
+  color:  var(--main-blue);
+}
+
+.footer p {
+  font-size: 1rem;
+  margin-top: 600px;
+  padding-top: 200px;;
+}
+
+
+
+.stop-btn {
+    margin-top: 20px;
+    background: var(--main-blue);
+    border-radius: 0 28px 28px 0;
+    color: #ffffff;
+    font-size: 1.8rem;
+    padding: 10px 20px 16px 10px;
+}
+.start-btn {
+  margin-top: 20px;
+    background: var(--main-blue);
+    border-radius: 28px 0 0 28px;
+    color: #ffffff;
+    font-size: 1.8rem;
+    padding: 10px 10px 16px 20px;
+}
+.ctr-btn:hover {
+    background: white;
+    color: var(--main-blue);
+}
+
+.ctr-btn:active {
+  background: rgb(21, 80, 168);
+  color: white;
+}
+
+.left-key {
+  margin-top: 20px;
+  border-radius: 28px 0 0 28px;
+  color: var(--main-blue);
+  font-size: 1.8rem;
+  padding: 10px 20px 16px 24px;
+}
+
+.center-key {
+  margin-top: 20px;
+  border-radius:1px 1px 1px 1px;
+  background-color: white;
+  color: var(--main-blue);
+  font-size: 1.8rem;
+  padding: 10px 20px 16px 20px;
+}
+
+.right-key {
+  margin-top: 20px;
+  background: white;
+  border-radius: 0 28px 28px 0 ;
+  color: var(--main-blue);
+  font-size: 1.8rem;
+  padding: 10px 24px 16px 20px;
+}
+
+.btn:hover {
+  background: var(--main-blue);
+  color: white;
+}
+
+.btn:active {
+  background: rgb(21, 80, 168);
+  color: white;
+}
+
+ctr-btn:focus {outline:0;}
+btn:focus {outline:0;}
 
 /******************************************
 *                                         *
