@@ -4,10 +4,13 @@ import { connect } from 'react-redux';
 function InfoHeader (props) {
   return (
     <div>
-    <h1>E</h1>
-    <h2>6th String - Open</h2>
+    <h1>{props.note || 'Select a Note'}</h1>
     </div>
   )
 }
 
-export default InfoHeader;
+
+
+const mapState = state => ({note: state.selectedNote});
+
+export default connect(mapState)(InfoHeader);
