@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet');
 
-
 :root {
   --main-orange: #fa933a;
   --main-blue: #5689D6;
@@ -9,7 +8,6 @@
 h1 {
  font-size: 2.5rem;
  color: var(--main-blue);
-
 }
 
 body {
@@ -31,8 +29,6 @@ body {
   padding-top: 200px;;
 }
 
-
-
 .stop-btn {
     margin-top: 20px;
     background: var(--main-blue);
@@ -41,6 +37,7 @@ body {
     font-size: 1.8rem;
     padding: 10px 20px 16px 10px;
 }
+
 .start-btn {
   margin-top: 20px;
     background: var(--main-blue);
@@ -49,6 +46,7 @@ body {
     font-size: 1.8rem;
     padding: 10px 10px 16px 20px;
 }
+
 .ctr-btn:hover {
     background: white;
     color: var(--main-blue);
@@ -88,15 +86,22 @@ body {
 .btn:hover {
   background: var(--main-blue);
   color: white;
+  outline: no0ne;
 }
 
 .btn:active {
   background: rgb(21, 80, 168);
   color: white;
+  outline: 0;
 }
 
-ctr-btn:focus {outline:0;}
-btn:focus {outline:0;}
+button:focus {
+  outline: 0;
+}
+
+button:acive {
+  outline: 0;
+}
 
 /******************************************
 *                                         *
@@ -146,7 +151,6 @@ width: 64px;
   border-radius: 50%;
   height: 64px;
   width: 64px;
-
 }
 
 .note-fail {
@@ -155,21 +159,7 @@ width: 64px;
   border-radius: 50%;
   height: 64px;
   width: 64px;
-
 }
-
-/* .note { */
-  /* border-radius: 50%; */
-  /* color: #fa933a; */
-  /* background-color: #fa933a; */
-  /* width: 3.2rem; */
-  /* height: 3.2rem; */
-  /* margin: auto; */
-  /* text-align: center; */
-  /* position: relative; */
-  /* bottom: 1.7rem; */
-  /* z-index: 5; */
-/* } */
 
 .note-hidden {
   visibility: hidden;
@@ -183,30 +173,20 @@ width: 64px;
   color: red;
 }
 
-
-
-
-
-
-
 #fretboard-container {
   display:flex;
   justify-content: center;
   margin: 4rem auto 1px auto;
-
 }
 
 .fretboard {
   display: grid;
   width: 72rem;
-  /* border: solid blue 4px; */
   border: none;
   border-bottom-style: none;
   border-radius: 5px;
   grid-template-columns: repeat(12, 6rem);
   grid-template-rows: repeat(6, 3rem);
-  /* border-top: solid grey 4px; */
-  /* border-right: solid grey 4px; */
 }
 
 .fret {
@@ -236,7 +216,6 @@ width: 64px;
   border-right: none;
 }
 
-
 .marker {
   border-radius: 50%;
   background-color: lightgrey;
@@ -245,17 +224,13 @@ width: 64px;
   margin: auto auto;
   position: relative;
   top: 0.5rem;
-
 }
-
-
 
 #control {
   display: flex;
   justify-content: center;
   margin-top: 4rem;
 }
-
 
 #control button {
   border: solid rgb(11, 63, 109) 5px;
@@ -265,8 +240,6 @@ width: 64px;
   font-size: 2rem;
   margin: 1rem;
   padding: 0.3rem 1.2rem;
-
-
 }
 
 #control  button:hover {
@@ -281,29 +254,6 @@ width: 64px;
   justify-content: center;
   font-size: 1.4rem;
 }
-
-.svg-success {
-  stroke-width: 2px;
-  stroke: #8EC343;
-  fill:none;
-  & path {
-    stroke-dasharray:17px, 17px;
-    stroke-dashoffset: 0px;
-    -webkit-animation: checkmark 0.25s ease-in-out 0.7s backwards;
-    animation: checkmark 0.25s ease-in-out 0.7s backwards;
-  }
-  & circle {
-    stroke-dasharray:76px, 76px;
-    stroke-dashoffset: 0px;
-    transform:rotate(-90deg);
-    transform-origin: 50% 50%;
-    -webkit-animation: checkmark-circle 0.6s ease-in-out forwards;
-    animation: checkmark-circle 0.6s ease-in-out forwards;
-  }
-}
-
-
-
 
 @keyframes checkmark {
     0% {
@@ -329,43 +279,13 @@ width: 64px;
   display: none;
 }
 
-
 .circle {
   fill: red;
   color: green;
   stroke: green;
 }
 
-
-/* .note-wrong {
-  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  perspective: 1000px;
-}
-
-
-@keyframes shake {
-  10%, 90% {
-    transform: translate3d(-1px, 0, 0);
-  }
-
-  20%, 80% {
-    transform: translate3d(2px, 0, 0);
-  }
-
-  30%, 50%, 70% {
-    transform: translate3d(-4px, 0, 0);
-  }
-
-  40%, 60% {
-    transform: translate3d(4px, 0, 0);
-  }
-} */
-
-@charset "UTF-8";
-
-/*!
+/*
  * animate.css -http://daneden.me/animate
  * Version - 3.6.0
  * Licensed under the MIT license - http://opensource.org/licenses/MIT

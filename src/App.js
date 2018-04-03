@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import Transition from 'react-transition-group/Transition';
 import logo from './logo.svg';
 import './App.css';
 import InfoHeader from './components/InfoHeader.js';
@@ -25,16 +24,10 @@ class App extends Component {
   }
 
   setNewNote(newNote) {
-    console.log('current note', this.state.note)
-    console.log('new note passed in', newNote)
-    console.log('this ', this)
     this.setState({note: newNote}, () => this.setupNotes());
   }
-  setupNotes(noteName) {
-    // console.log('NOTE NAME in SETUP NOTES', noteName)
-    // console.log('STATE IN SETUP NOTES', this.state);
 
-    console.log('STATE AFTER SETTING NOTE NAME', this.state)
+  setupNotes(noteName) {
     const sequences = this.state.sequences;
     const note = this.state.note;
     const updatedNotes = sequences[note].map(el => 'pop');
@@ -52,7 +45,6 @@ class App extends Component {
   }
 
   handleSuccess() {
-    // this.setState({ sequence: [...this.state.sequence, this.state.sequence[this.state.index].status = 'note-success']})
     this.setState({sequences: this.state.sequences[this.state.note[this.state.index]= 'sucess']})
   }
 
@@ -60,9 +52,7 @@ class App extends Component {
     this.setState({index: this.state.index + 1});
   }
 
-
   render() {
-    // console.log('SEQUENCES IN APP', this.state.sequences)
     return (
       <div className="App">
         <header className="App-header">
@@ -80,5 +70,3 @@ class App extends Component {
 }
 
 export default App;
-
-

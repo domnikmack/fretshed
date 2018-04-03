@@ -5,7 +5,6 @@ import { updateStatus, clearStatus } from '../store';
 import clickAudio from '../audio/click.mp3';
 import ReactAudioPlayer from 'react-audio-player';
 
-
 class SelectNote extends Component {
   constructor(props) {
     super(props);
@@ -14,13 +13,10 @@ class SelectNote extends Component {
     }
     this.handleSelect = this.handleSelect.bind(this);
     this.handleClear = this.handleClear.bind(this);
-
   }
 
   handleSelect(evt) {
     evt.preventDefault();
-    // console.log('Button value', evt.target.value);
-    // console.log('PROPS in SELECTNOTE', this.props)
     this.props.setNote(evt.target.value);
     this.props.updateStatus(['pop', 'pop', 'pop', 'pop', 'pop', 'pop'])
   }
@@ -37,12 +33,10 @@ class SelectNote extends Component {
     if(this.state.buttonClicked) return <ReactAudioPlayer src={clickAudio} autoPlay />
   }
 
-
   render() {
-    console.log('PROPS in select note', this.props)
 
     return (
-      <div>
+      <div className='key-selector'>
         <button className='btn left-key' onClick={this.handleSelect} value="C">C</button>
         <button className='btn center-key' onClick={this.handleSelect} value="D">D</button>
         <button className='btn center-key' onClick={this.handleSelect} value="E">E</button>
@@ -56,8 +50,6 @@ class SelectNote extends Component {
     )
   }
 }
-
-
 
 const mapDispatch = function (dispatch) {
   return {
@@ -76,5 +68,4 @@ const mapDispatch = function (dispatch) {
   };
 }
 
-
-  export default connect(null, mapDispatch)(SelectNote)
+export default connect(null, mapDispatch)(SelectNote)

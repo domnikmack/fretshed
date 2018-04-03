@@ -36,7 +36,6 @@ const NoteFail = ({ addToClass }) => {
   )
 }
 
-
 class Fretboard extends Component {
   constructor(props) {
     super();
@@ -60,8 +59,6 @@ class Fretboard extends Component {
   getComponent(pos, addToClass) {
     const selectedNote = this.props.selectedNote;
     const notesStatus = this.props.notesStatus;
-    console.log('selecteNote in getComponent', selectedNote)
-    console.log('notesStatus in getComponent', notesStatus)
     if (!selectedNote || !notesStatus.length) return null;
 
     if (selectedNote === pos.note && notesStatus[pos.noteIndex] === 'hide') return null;
@@ -84,7 +81,6 @@ class Fretboard extends Component {
       )
     }
 
-
     if (selectedNote === pos.note && notesStatus[pos.noteIndex] === 'fail') {
       return (
         <div>
@@ -104,12 +100,10 @@ class Fretboard extends Component {
     if (selectedNote === pos.note && notesStatus[pos.noteIndex] === 'neutral') return <NoteNeutral addToClass={addToClass} />;
   }
 
-
   render() {
-    console.log('PROPS IN FRETBOARD', this.props);
     const { sequence } = this.props;
-
     const { show } = this.state;
+
     return (
       <section id="fretboard-container">
         <div className="fretboard">
@@ -212,7 +206,6 @@ class Fretboard extends Component {
           <div className="fret fret-bottom">{this.getComponent({ note: 'D', noteIndex: 0 }, '')}</div>
           <div className="fret fret-bottom"></div>
           <div className="fret fret-bottom"></div>
-
           <div>
           </div>
         </div>
@@ -220,9 +213,7 @@ class Fretboard extends Component {
 
     )
   }
-
 }
-
 
 const mapState = function (state) {
   return {

@@ -9,8 +9,6 @@ function InfoHeader (props) {
   )
 }
 
-
-
 const mapState = state => ({note: state.selectedNote});
 
 export default connect(mapState)(InfoHeader);
