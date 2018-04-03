@@ -101,8 +101,10 @@ class Control extends Component {
   handleStop(evt) {
     evt.preventDefault();
     clearInterval(intervalID);
-    var track = mediaStream.getTracks()[0];
-    track.stop();
+    if(mediaStream) {
+      var track = mediaStream.getTracks()[0];
+      track.stop();
+    }
   }
 
   render() {

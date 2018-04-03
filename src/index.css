@@ -47,6 +47,10 @@ body {
     padding: 10px 10px 16px 20px;
 }
 
+.start-btn, .stop-btn {
+  outline: 0;
+}
+
 .ctr-btn:hover {
     background: white;
     color: var(--main-blue);
@@ -56,6 +60,8 @@ body {
   background: rgb(21, 80, 168);
   color: white;
 }
+
+
 
 .left-key {
   margin-top: 20px;
@@ -95,11 +101,7 @@ body {
   outline: 0;
 }
 
-button:focus {
-  outline: 0;
-}
-
-button:acive {
+.btn:focus {
   outline: 0;
 }
 
@@ -283,6 +285,13 @@ width: 64px;
   fill: red;
   color: green;
   stroke: green;
+}
+
+.credits {
+  margin-top: 30px;
+  color: grey;
+  font-style: italic;
+  font-size: 0.8rem;
 }
 
 /*
