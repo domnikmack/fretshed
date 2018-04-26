@@ -93,7 +93,7 @@ class Fretboard extends Component {
       return (
         <div>
           <NotePop addToClass={addToClass} />
-          <ReactAudioPlayer src={bellAudio} autoPlay volume='0.1' />
+          <ReactAudioPlayer src={bellAudio} autoPlay volume={0.05} />
         </div>
       )
     }
