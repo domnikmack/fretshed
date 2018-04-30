@@ -15,10 +15,6 @@ class Control extends Component {
     this.startListening = this.startListening.bind(this);
   }
 
-  handleStart(evt) {
-    evt.preventDefault();
-  }
-
   startListening() {
     const selectedNote = this.props.selectedNote;
     const updateStatus = this.props.updateStatus;
@@ -39,6 +35,7 @@ class Control extends Component {
         let ready = true;
         intervalID = setInterval(() => {
           let detectedNote = pitchDetect.getPitch().note;
+          console.log('detectedNote ', detectedNote);
           if (detectedNote && detectedNote === previousNote) count++;
           if (ready && detectedNote === selectedNote) {
             if (count >= 3) {
@@ -59,12 +56,14 @@ class Control extends Component {
               }, 1000);
               setTimeout(() => {
                 count = 0;
+                wrongCount = 0;
                 ready = true;
               }, 1000);
             }
           } else {
             count = 0;
-            if (wrongCount >= 3) {
+            if (wrongCount >= 5) {
+              console.log('wrong')
               wrongCount = 0;
               let statusArr = ['hide', 'hide', 'hide', 'hide', 'hide', 'hide'].map((el, i) => i === progressIndex ? 'fail' : 'hide');
               updateStatus(statusArr);
@@ -77,8 +76,9 @@ class Control extends Component {
                 }, 1000);
               }, 1000);
             }
-            if (ready & detectedNote !== undefined && previousNote === detectedNote) {
+            if (ready && detectedNote !== undefined && previousNote === detectedNote) {
               wrongCount++;
+              console.log('wrong count: ', wrongCount)
             }
           }
           if (ascending && progressIndex === 5) {
@@ -108,7 +108,6 @@ class Control extends Component {
   }
 
   render() {
-    const { handleSuccess, nextNote } = this.props;
     return (
       <div>
         <button onClick={this.startListening} className="ctr-btn start-btn">start</button>

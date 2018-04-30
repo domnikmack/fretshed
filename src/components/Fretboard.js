@@ -101,8 +101,8 @@ class Fretboard extends Component {
   }
 
   render() {
-    const { sequence } = this.props;
-    const { show } = this.state;
+    // const { sequence } = this.props;
+    // const { show } = this.state;
 
     return (
       <section id="fretboard-container">
