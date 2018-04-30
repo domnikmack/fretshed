@@ -36,8 +36,12 @@ class Control extends Component {
         intervalID = setInterval(() => {
           let detectedNote = pitchDetect.getPitch().note;
           console.log('detectedNote ', detectedNote);
-          if (detectedNote && detectedNote === previousNote) count++;
-          if (ready && detectedNote === selectedNote) {
+          if (ready && detectedNote && detectedNote === previousNote) {
+            count++;
+          } else {
+            count = 0;
+          }
+          if (detectedNote === selectedNote) {
             if (count >= 3) {
               ready = false;
               let statusArr = ['hide', 'hide', 'hide', 'hide', 'hide', 'hide'].map((el, i) => i === progressIndex ? 'success' : 'hide');
@@ -62,7 +66,7 @@ class Control extends Component {
             }
           } else {
             count = 0;
-            if (wrongCount >= 5) {
+            if (wrongCount >= 3) {
               console.log('wrong')
               wrongCount = 0;
               let statusArr = ['hide', 'hide', 'hide', 'hide', 'hide', 'hide'].map((el, i) => i === progressIndex ? 'fail' : 'hide');
