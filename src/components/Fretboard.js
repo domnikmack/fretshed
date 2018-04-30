@@ -75,7 +75,7 @@ class Fretboard extends Component {
     if (selectedNote === pos.note && notesStatus[pos.noteIndex] === 'success') {
       return (
         <div>
-          <NoteSuccess addToClass={addToClass} />;
+          <NoteSuccess addToClass={addToClass} />
           <ReactAudioPlayer src={successAudio} autoPlay />
         </div>
       )
